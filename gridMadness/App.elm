@@ -284,19 +284,21 @@ styleGridRow =
 styleGridBox : GridBox -> Attribute msg
 styleGridBox box =
     let
-        generalStyles =
+        bgColor =
+            case box of
+                Player ->
+                    "#fff"
+
+                Empty ->
+                    "#000"
+    in
+        style
             [ ( "height", "40px" )
             , ( "width", "40px" )
             , ( "box-sizing", "border-box" )
             , ( "float", "left" )
+            , ( "background-color", bgColor )
             ]
-    in
-        case box of
-            Player ->
-                style (generalStyles ++ [ ( "background-color", "#fff" ) ])
-
-            Empty ->
-                style (generalStyles ++ [ ( "background-color", "#000" ) ])
 
 
 
