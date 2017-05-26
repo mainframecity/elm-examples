@@ -154,7 +154,7 @@ subscriptions model =
 view : Model -> Html Msg
 view model =
     div [ styleContainer ]
-        [ div [ styleHeader ] [ h1 [ styleTitle ] [ text "Grid Madness" ] ]
+        [ div [ styleHeader ] [ h1 [ styleTitle ] [ text "Grid Madness!" ] ]
         , viewGrid model
         , div [ (styleMetaInfo True) ]
             [ text "h/j/k/l to move" ]
@@ -208,7 +208,7 @@ textKeyPress code =
 viewPlayerPos : Position -> Html msg
 viewPlayerPos position =
     div [ styleInnerMeta ]
-        [ text (toString position) ]
+        [ text ("pos: " ++ (toString position)) ]
 
 
 
@@ -236,6 +236,7 @@ styleTitle =
     style
         [ ( "text-transform", "lowercase" )
         , ( "font-family", "Courier New, monospace" )
+        , ( "font-size", "1.9em" )
         ]
 
 
