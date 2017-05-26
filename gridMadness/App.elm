@@ -58,6 +58,10 @@ type Direction
     | Down
     | Left
     | Right
+    | UpLeft
+    | UpRight
+    | DownLeft
+    | DownRight
     | Stay
 
 
@@ -320,6 +324,18 @@ toDirection code =
         76 ->
             Right
 
+        89 ->
+            UpLeft
+
+        85 ->
+            UpRight
+
+        66 ->
+            DownLeft
+
+        78 ->
+            DownRight
+
         _ ->
             Stay
 
@@ -338,6 +354,18 @@ movePlayer ( x, y ) direction =
 
         Down ->
             ( x, y + 1 ) |> clampMovement
+
+        UpLeft ->
+            ( x - 1, y - 1 ) |> clampMovement
+
+        UpRight ->
+            ( x + 1, y - 1 ) |> clampMovement
+
+        DownLeft ->
+            ( x - 1, y + 1 ) |> clampMovement
+
+        DownRight ->
+            ( x + 1, y + 1 ) |> clampMovement
 
         Stay ->
             ( x, y )
